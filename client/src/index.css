@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink-800 font-sans antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-ink-900;
+  }
+  :focus-visible {
+    outline: 2px solid #B8863B;
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Corner-bracket "schematic" card frame — the structural motif used across
+     technician cards, booking cards, and the passport timeline. */
+  .blueprint-card {
+    @apply relative bg-paper-soft border border-ink-100 rounded-card shadow-card;
+  }
+  .blueprint-card::before,
+  .blueprint-card::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: theme('colors.brass.400');
+    pointer-events: none;
+  }
+  .blueprint-card::before {
+    top: -1px;
+    left: -1px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+  }
+  .blueprint-card::after {
+    bottom: -1px;
+    right: -1px;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+  }
+
+  /* The Verified Stamp — the product's signature element. A rotated,
+     ink-stamp-style badge used anywhere trust needs to be asserted:
+     technician cards, the booking timeline, and service passport entries. */
+  .verified-stamp {
+    @apply inline-flex items-center gap-1.5 font-display font-semibold uppercase tracking-wide;
+    color: theme('colors.teal.600');
+    border: 2px solid theme('colors.teal.500');
+    border-radius: 9999px;
+    padding: 0.15rem 0.65rem;
+    font-size: 0.68rem;
+    transform: rotate(-3deg);
+    background: rgba(31, 111, 99, 0.06);
+    letter-spacing: 0.06em;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-ink-800 text-paper-soft font-semibold px-4 py-2.5 rounded-lg
+      hover:bg-ink-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-transparent text-ink-800 font-semibold px-4 py-2.5 rounded-lg
+      border border-ink-200 hover:border-ink-400 hover:bg-ink-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-brass {
+    @apply inline-flex items-center justify-center gap-2 bg-brass-500 text-white font-semibold px-4 py-2.5 rounded-lg
+      hover:bg-brass-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 bg-transparent text-rust-600 font-semibold px-4 py-2.5 rounded-lg
+      border border-rust-200 hover:bg-rust-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .input-field {
+    @apply w-full bg-paper-soft border border-ink-200 rounded-lg px-3.5 py-2.5 text-ink-800 placeholder:text-ink-300
+      focus:border-brass-400 focus:ring-1 focus:ring-brass-300 outline-none transition-colors;
+  }
+  .label-field {
+    @apply block text-sm font-medium text-ink-600 mb-1.5;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+}

@@ -1,0 +1,83 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        ink: {
+          DEFAULT: '#101826',
+          50: '#F1F3F6',
+          100: '#DDE2E9',
+          200: '#B9C3D1',
+          300: '#8C9AAE',
+          400: '#5D6C82',
+          500: '#3B4759',
+          600: '#242E3D',
+          700: '#182130',
+          800: '#101826',
+          900: '#0A0F19',
+        },
+        paper: {
+          DEFAULT: '#F6F3EC',
+          soft: '#FBF9F4',
+          muted: '#EDE8DB',
+        },
+        brass: {
+          DEFAULT: '#B8863B',
+          50: '#FBF3E5',
+          100: '#F3E0BC',
+          200: '#E7C486',
+          300: '#D6A857',
+          400: '#C2953F',
+          500: '#B8863B',
+          600: '#966B2C',
+          700: '#734F20',
+          800: '#4F3717',
+          900: '#2E200D',
+        },
+        teal: {
+          DEFAULT: '#1F6F63',
+          50: '#E7F3F1',
+          100: '#C4E2DC',
+          200: '#8FC7BC',
+          300: '#5CA99B',
+          400: '#358D7E',
+          500: '#1F6F63',
+          600: '#185A50',
+          700: '#12453D',
+          800: '#0B2E29',
+          900: '#061815',
+        },
+        rust: {
+          DEFAULT: '#B9502F',
+          50: '#FBEAE3',
+          100: '#F3C9B7',
+          200: '#E7A188',
+          300: '#D97A5C',
+          400: '#C9613D',
+          500: '#B9502F',
+          600: '#943F25',
+          700: '#6E2E1B',
+          800: '#481E12',
+          900: '#250F09',
+        },
+        slate: {
+          DEFAULT: '#5B6472',
+        },
+      },
+      fontFamily: {
+        display: ['"Fraunces"', 'Georgia', 'serif'],
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+      },
+      boxShadow: {
+        card: '0 1px 2px rgba(16, 24, 38, 0.06), 0 4px 16px rgba(16, 24, 38, 0.06)',
+        stamp: '0 0 0 2px rgba(184, 134, 59, 0.15)',
+      },
+      borderRadius: {
+        card: '10px',
+      },
+    },
+  },
+  plugins: [],
+};
